@@ -1,22 +1,48 @@
-#content {
-  position: relative;
+body {
+  margin: 0;
 }
 
 .banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.banner-img {
   max-width: 100%;
+  height: auto;
 }
 
-.header-text {
+.banner-title {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.33);
-  font-size: 6rem;
+  width: 100%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%);
+  text-align: center;
+  color: blanchedalmond;
+  font-size: clamp(1rem, calc(10vw + 0.5rem), 8rem);
 }
 
-.headline-text {
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.tab {
+  padding: 1rem 3rem;
+  background-color: blanchedalmond;
+  border: 1px solid black;
+  font-size: clamp(1rem, calc(2vw + 0.5rem), 2.5rem);
+}
+
+.headline {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: clamp(1rem, calc(2vw + 0.5rem), 2.5rem);
   font-style: italic;
+}
+
+.description {
+  white-space: pre-wrap;
 }

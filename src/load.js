@@ -2,35 +2,69 @@ import "./style.css";
 import Banner from "./banner.jpg";
 
 export default function loadPage() {
-  const contentDiv = document.querySelector("#content");
+  const content = document.querySelector("#content");
+  content.replaceChildren();
 
-  const banner = new Image();
+  const header = document.createElement("div");
+  header.className = "header";
+
+  const banner = document.createElement("div");
   banner.className = "banner";
-  banner.src = Banner;
+  header.appendChild(banner);
 
-  const headerText = document.createElement("div");
-  headerText.className = "header-text";
-  headerText.textContent = "Restaurant";
+  const bannerImg = new Image();
+  bannerImg.className = "banner-img";
+  bannerImg.src = Banner;
+  banner.appendChild(bannerImg);
 
-  const headlineText = document.createElement("div");
-  headlineText.className = "headline-text";
-  headlineText.textContent = "Enjoy delicious meals in a cozy mediterranean atmosphere.";
+  const bannerTitle = document.createElement("div");
+  bannerTitle.className = "banner-title";
+  bannerTitle.textContent = "Restaurant";
+  banner.appendChild(bannerTitle);
 
-  const descriptionText = document.createElement("p");
-  descriptionText.className = "description-text";
-  descriptionText.textContent = `Welcome to our Mediterranean restaurant, where we serve up delicious, authentic dishes inspired by the rich culinary traditions of the Mediterranean. Our cozy, inviting atmosphere and friendly staff make us the perfect destination for a relaxing meal with family and friends.
+  const nav = document.createElement("nav");
+  nav.className = "nav";
+  header.appendChild(nav);
 
-  Our menu features a wide range of dishes, from classic meze and fresh salads to succulent grilled meats and seafood specialties. Every dish is made with the freshest ingredients and cooked to perfection, ensuring a satisfying and flavorful meal every time.
+  const tab1 = document.createElement("div");
+  tab1.classList.add("tab-1", "tab");
+  tab1.textContent = "Home";
+
+  const tab2 = document.createElement("div");
+  tab2.classList.add("tab-2", "tab");
+  tab2.textContent = "Menu";
+
+  const tab3 = document.createElement("div");
+  tab3.classList.add("tab-3", "tab");
+  tab3.textContent = "Contact";
+
+  nav.appendChild(tab1);
+  nav.appendChild(tab2);
+  nav.appendChild(tab3);
+
+  const main = document.createElement("div");
+  main.className = "main";
+
+  const headline = document.createElement("div");
+  headline.className = "headline";
+  headline.textContent = "Enjoy delicious meals in a cozy mediterranean atmosphere.";
+
+  const description = document.createElement("p");
+  description.className = "description";
+  description.textContent = `Welcome to our Mediterranean restaurant, where we serve up delicious, authentic dishes inspired by the rich culinary traditions of the Mediterranean. Our cozy, inviting atmosphere and friendly staff make us the perfect destination for a relaxing meal with family and friends.
   
-  Whether you're a meat lover or a vegetarian, our menu has something for everyone. Our popular mixed grill features juicy chicken, tender lamb, and flavorful beef, while our falafel platter is a delicious vegetarian option.
+Our menu features a wide range of dishes, from classic meze and fresh salads to succulent grilled meats and seafood specialties. Every dish is made with the freshest ingredients and cooked to perfection, ensuring a satisfying and flavorful meal every time.
   
-  To accompany your meal, we offer a selection of wines from the Mediterranean region, as well as a variety of cocktails and non-alcoholic beverages.
+Whether you're a meat lover or a vegetarian, our menu has something for everyone. Our popular mixed grill features juicy chicken, tender lamb, and flavorful beef, while our falafel platter is a delicious vegetarian option.
   
-  At our Mediterranean restaurant, we're committed to providing our customers with a memorable dining experience that is both delicious and affordable. We look forward to welcoming you to our restaurant and sharing the flavors of the Mediterranean with you.
+To accompany your meal, we offer a selection of wines from the Mediterranean region, as well as a variety of cocktails and non-alcoholic beverages.
+  
+At our Mediterranean restaurant, we're committed to providing our customers with a memorable dining experience that is both delicious and affordable. We look forward to welcoming you to our restaurant and sharing the flavors of the Mediterranean with you.
   `;
 
-  contentDiv.appendChild(banner);
-  contentDiv.appendChild(headerText);
-  contentDiv.appendChild(headlineText);
-  contentDiv.appendChild(descriptionText);
+  main.appendChild(headline);
+  main.appendChild(description);
+
+  content.appendChild(header);
+  content.appendChild(main);
 }
